@@ -1,8 +1,9 @@
-﻿public class Program
+public class Program
 {
     public static void Main(string[] args)
     {
         char vars;  
+        string start = "stay01";
         int number = 0;    
         string bools = "false";
         CircularLinkedList<char> character = new CircularLinkedList<char>();
@@ -19,22 +20,24 @@
                {
                     Inputchar.Add(vars);
                     bools = "true";  
-                    if (Inputchar.Get(0) == 'R')
+                    if (Inputchar.Get(number) == 'R' && start == "stay01")
                     {
                         Console.WriteLine("Invalid pattern.");
                     } 
-                    else if (Inputchar.Get(number-1) == 'R' && vars == Inputchar.Get(number-2))
+                    else if (Inputchar.Get(number-1) == 'R' && vars == Inputchar.Get(number-2) && Inputchar.GetLength() >= 3)
                     {
                         Console.WriteLine("Invalid pattern.");
                     }
-                    else if (Inputchar.Get(number-1) == 'R' && vars == 'R'  )
+                    else if (Inputchar.Get(number-1) == 'R' && vars == 'R' && Inputchar.GetLength() >= 3)
                     {
                         Console.WriteLine("Invalid pattern.");
                     }
-                    if ((Inputchar.Get(number-1) == 'G' && vars == 'G' && Inputchar.Get(number-2) == 'G') && Inputchar.GetLength() >= 3)
+                    if ((Inputchar.Get(number-1) == 'G' && vars == 'G' && Inputchar.Get(number-2) == 'G') 
+                     && Inputchar.GetLength() >= 4 && Inputchar.Get(number-3) == 'G')
                     {
                        Console.WriteLine("Invalid pattern."); 
-                    }                   
+                    }   
+                    start = "stay00";                
                     number++;                                                            
                }             
             else 
