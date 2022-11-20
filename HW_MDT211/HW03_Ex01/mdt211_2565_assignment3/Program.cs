@@ -23,19 +23,25 @@ public class Program
                     if (Inputchar.Get(number) == 'R' && start == "stay01")
                     {
                         Console.WriteLine("Invalid pattern.");
+                        vars = Inputcharacter();
+                        Inputchar.Add(vars);
+                        Inputchar.Remove(number);
                     } 
                     else if (Inputchar.Get(number-1) == 'R' && vars == Inputchar.Get(number-2) && Inputchar.GetLength() >= 3)
                     {
                         Console.WriteLine("Invalid pattern.");
+                        Inputchar.Remove(number);
                     }
                     else if (Inputchar.Get(number-1) == 'R' && vars == 'R' && Inputchar.GetLength() >= 3)
                     {
                         Console.WriteLine("Invalid pattern.");
+                        Inputchar.Remove(number);
                     }
                     if ((Inputchar.Get(number-1) == 'G' && vars == 'G' && Inputchar.Get(number-2) == 'G') 
                      && Inputchar.GetLength() >= 4 && Inputchar.Get(number-3) == 'G')
                     {
                        Console.WriteLine("Invalid pattern."); 
+                       Inputchar.Remove(number);
                     }   
                     start = "stay00";                
                     number++;                                                            
