@@ -42,6 +42,12 @@ public class Program
                     {
                        Console.WriteLine("Invalid pattern."); 
                        Inputchar.Remove(number);
+                    } 
+                    else if ((Inputchar.Get(number+1) == 'G' && vars == 'G' && Inputchar.Get(number+2) == 'G') 
+                     && Inputchar.GetLength() >= 4 && Inputchar.Get(number+3) == 'G')
+                    {
+                       Console.WriteLine("Invalid pattern."); 
+                       Inputchar.Remove(number);
                     }   
                     start = "stay00";                
                     number++;                                                            
