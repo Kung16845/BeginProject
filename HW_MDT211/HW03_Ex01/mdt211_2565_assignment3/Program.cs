@@ -18,39 +18,35 @@ public class Program
             if (vars == character.Get(0) || vars == character.Get(1) 
             || vars == character.Get(2) || vars == character.Get(3))
                {
-                    Inputchar.Add(vars);
-                    bools = "true";  
-                    if (Inputchar.Get(number) == 'R' && start == "stay01")
+                    bools = "true"; 
+                    Inputchar.Add(vars);                                                     
+                    if (Inputchar.Get(number) == 'R' && start == "stay01")  
                     {
-                        Console.WriteLine("Invalid pattern.");
-                        vars = Inputcharacter();
-                        Inputchar.Add(vars);
-                        Inputchar.Remove(number);
-                    } 
-                    else if (Inputchar.Get(number-1) == 'R' && vars == Inputchar.Get(number-2) && Inputchar.GetLength() >= 3)
+                       Console.WriteLine("Invalid pattern.");
+                       Inputchar.Set(0,Inputcharacter());                      
+                    }  
+                    else if (Inputchar.Get(number-1) == 'R' && Inputchar.Get(number-2) == Inputchar.Get(number))  
                     {
-                        Console.WriteLine("Invalid pattern.");
-                        Inputchar.Remove(number);
-                    }
-                    else if (Inputchar.Get(number-1) == 'R' && vars == 'R' && Inputchar.GetLength() >= 3)
-                    {
-                        Console.WriteLine("Invalid pattern.");
-                        Inputchar.Remove(number);
-                    }
-                    if ((Inputchar.Get(number-1) == 'G' && vars == 'G' && Inputchar.Get(number-2) == 'G') 
-                     && Inputchar.GetLength() >= 4 && Inputchar.Get(number-3) == 'G')
-                    {
-                       Console.WriteLine("Invalid pattern."); 
+                       Console.WriteLine("Invalid pattern.");
                        Inputchar.Remove(number);
-                    } 
-                    else if ((Inputchar.Get(number+1) == 'G' && vars == 'G' && Inputchar.Get(number+2) == 'G') 
-                     && Inputchar.GetLength() >= 4 && Inputchar.Get(number+3) == 'G')
+                       number--;
+                    }  
+                    else if(Inputchar.Get(number) == 'G' && Inputchar.Get(number-1) == 'G' 
+                    && Inputchar.Get(number-2) == 'G' && Inputchar.Get(number-3) == 'G' && number > 2)
                     {
-                       Console.WriteLine("Invalid pattern."); 
+                       Console.WriteLine("Invalid pattern.");
                        Inputchar.Remove(number);
-                    }   
-                    start = "stay00";                
-                    number++;                                                            
+                       number--;
+                    } 
+                    else if(Inputchar.Get(number) == 'G' && Inputchar.Get(number+1) == 'G' 
+                    && Inputchar.Get(number+2) == 'G' && Inputchar.Get(number+3) == 'G' && number > 2)
+                    {
+                       Console.WriteLine("Invalid pattern.");
+                       Inputchar.Remove(number);
+                       number--;
+                    }                   
+                    number++;   
+                    start = "stay00";                                                                                              
                }             
             else 
             {
